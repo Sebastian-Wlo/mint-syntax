@@ -2,70 +2,139 @@
 @plugin "daisyui";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --palette-main-brand-green: #2c7873;
+  --palette-logo-bg-green: #70d6a3;
+  --palette-accent-white: #f8f8f8;
+  --palette-dark-contrast-green: #1a5b57;
+  --palette-primary-text: #333333;
+  --palette-secondary-text: #777777;
+  --palette-borders-separators: #e0e0e0;
+  --palette-code-accent: #ffd700;
+  --button-mint-light: #6afb92;
+  --button-orange-dark: #ffa500;
+  --palette-gradient-light-end: #e0f2e9;
+  --font-family-sans: sans-serif;
+  --font-family-montserrat: "Montserrat", sans-serif;
+  --font-family-jetbrains-mono: "JetBrains Mono", monospace;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 0.75rem;
+  --border-radius-pill: 9999px;
+  --border-width-thin: 1px;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 6px 10px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.15);
+  --shadow-active: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --transition-speed-fast: 0.2s;
+  --transition-speed-normal: 0.3s;
+  --transition-speed-slow: 0.6s;
+  --transition-ease-in-out: ease-in-out;
+  --transition-cubic-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --font-size-sm: 0.8rem;
+  --font-size-base: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2.25rem;
+  --font-size-3xl: 3rem;
+  --line-height-normal: 1.75rem;
+  --line-height-tight: 2.5rem;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --logo-height-desktop: 10rem;
+  --logo-height-mobile: 6rem;
+  --button-animated-padding-mobile: 0.6rem var(--spacing-md);
+  --button-animated-font-size-mobile: var(--font-size-md);
+  --hero-button-padding-desktop-y: 2.25rem;
+  --hero-button-padding-desktop-x: 5rem;
+  --hero-button-font-size-desktop: var(--font-size-3xl);
+  --header-padding-y: 0.5rem;
+  --header-padding-x: var(--spacing-lg);
+  --header-margin-bottom: var(--spacing-lg);
+  --container-wrapper-max-width: 56rem;
+  --container-wrapper-padding-y: var(--spacing-lg);
+  --about-section-padding-top: var(--spacing-md);
+  --about-section-padding-bottom: var(--spacing-lg);
+  --about-section-max-width: 42rem;
+  --features-grid-minmax: 200px;
+  --team-grid-minmax: 150px;
+  --footer-padding-y: var(--spacing-md);
+  --footer-padding-x: var(--spacing-lg);
+  --footer-margin-top: var(--spacing-lg);
+  --footer-content-gap: var(--spacing-md);
+  --social-icons-gap: var(--spacing-md);
+  --nav-list-gap: 0.75rem;
+  --nav-link-padding-y: 0.5rem;
+  --nav-link-padding-x: 0.75rem;
+  --feature-card-padding: var(--spacing-md);
+  --feature-icon-size: 3rem;
+  --feature-title-font-size: var(--font-size-xl);
+  --feature-description-font-size: var(--font-size-base);
+  --about-project-description-padding: var(--spacing-sm);
+  --team-member-padding-y: 0.5rem;
+  --team-member-padding-x: 1rem;
+  --back-to-top-padding-y: 0.5rem;
+  --back-to-top-padding-x: 1rem;
+  --animated-button-padding-y: 0.75rem;
+  --animated-button-padding-x: var(--spacing-lg);
+  --animated-button-font-size: var(--font-size-lg);
+  --animated-button-hover-transform: translateY(-2px);
+  --animated-button-active-transform: translateY(0);
+  --animated-button-hover-shadow: var(--shadow-md);
+  --animated-button-active-shadow: var(--shadow-active);
+  --animated-button-before-transition-speed: var(--transition-speed-slow);
+  --animated-button-before-transition-cubic-bezier: cubic-bezier(
+    0.165,
+    0.84,
+    0.44,
+    1
+  );
+  --idea-form-heading-margin-bottom: var(--spacing-lg);
+  --idea-form-sub-heading-margin-top: var(--spacing-lg);
+  --idea-form-sub-heading-margin-bottom: var(--spacing-md);
+  --form-group-margin-bottom: var(--spacing-sm);
+  --form-label-margin-bottom: var(--spacing-xs);
+  --form-input-padding: var(--spacing-sm);
+  --form-textarea-min-height: 8rem;
+  --voting-section-margin-top: var(--spacing-md);
+  --voting-section-padding: var(--spacing-md);
+  --voting-section-h3-margin-bottom: var(--spacing-md);
+  --idea-item-padding: var(--spacing-sm);
+  --idea-item-margin-bottom: var(--spacing-xs);
+  --image-only-upvote-button-padding: 0.3rem;
+  --upvote-icon-size: 2.5rem;
+  --vote-count-min-width: 2rem;
+  --auth-button-padding-y: 0.5rem;
+  --auth-button-padding-x: 1rem;
+  --auth-button-font-size: var(--font-size-base);
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    var(--palette-logo-bg-green),
+    var(--palette-gradient-light-end)
+  );
+  font-family: var(--font-family-sans);
+  color: var(--palette-primary-text);
+  padding: var(--spacing-md);
+  margin: 0;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.container-wrapper {
+  max-width: var(--container-wrapper-max-width);
+  margin-inline: auto;
+  padding-block: var(--container-wrapper-padding-y);
+  background-color: var(--palette-accent-white);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
 }
